@@ -13,22 +13,21 @@
 import Foundation
 
 // MARK: - Root
-struct Root: Codable {
-    let astronauts: [Astronaut]
+struct AstronautsData: Codable {
+    let results: [Astronaut]
 }
 
-// MARK: - Result
+// MARK: - Astronaut
 struct Astronaut: Codable {
     let id: Int
     let url: String
     let name: String
     let status, type: Status
-    let dateOfBirth: String
     let nationality, bio: String
     let twitter, instagram: String?
     let wiki: String
-    let profileImage: String
-    let profileImageThumbnail: String
+    let profile_image: String?
+    let profile_image_thumbnail: String?
     let lastFlight, firstFlight: Date?
 
 }
