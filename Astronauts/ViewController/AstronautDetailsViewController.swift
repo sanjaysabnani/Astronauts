@@ -15,8 +15,6 @@ class AstronautDetailsViewController: UIViewController {
     @IBOutlet weak var bioTextView: UITextView!
 
     var astronautID : Int?
-       
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +40,8 @@ class AstronautDetailsViewController: UIViewController {
                 DispatchQueue.main.async {
                     
                     self?.nameLabel.text = astronaut.name
-                    self?.countryLabel.text = astronaut.nationality
-                    self?.dobLabel.text = astronaut.date_of_birth
+                    self?.countryLabel.text = "Nationality : \(astronaut.nationality)"
+                    self?.dobLabel.text = "DOB : \(astronaut.date_of_birth ??  "Unknown")"
                     self?.bioTextView.text = astronaut.bio
                     
                 }
