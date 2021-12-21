@@ -8,12 +8,11 @@
 import Foundation
 
 struct AstronautsViewModel {
-    
-    private let apiHelper = APIHelper()
+    var apiServiceProtocol : APIServiceProtocol
     
     func getAstronautsList(completion: @escaping ([Astronaut], Error?) -> ()){
       var astronauts = [Astronaut]()
-        apiHelper.fetchAstronauts { astronautsData, error in
+        apiServiceProtocol.fetchAstronauts { astronautsData, error in
             if(error != nil){
                 completion(astronauts, error)
             }

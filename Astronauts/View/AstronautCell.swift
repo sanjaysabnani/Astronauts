@@ -14,11 +14,11 @@ class AstronautCell: UITableViewCell {
    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.profileImageView.layer.cornerRadius = 25.0
     }
 
     func setUpView(with astronaut : Astronaut){
-        let astronautCellViewModel = AstronautCellViewModel(astronaut: astronaut)
+        let astronautCellViewModel = AstronautCellViewModel(astronaut: astronaut, apiServiceProtocol: APIHelper.shared)
         
         self.nameLabel.text = astronautCellViewModel.name
         self.countryLabel.text = astronautCellViewModel.nationality

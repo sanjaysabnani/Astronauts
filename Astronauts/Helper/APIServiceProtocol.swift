@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol APIServiceProtocol {
     
 func fetchAstronauts(completion : @escaping (_ astronauts  : AstronautsData?, _ error : Error?)->())
-
+    
+    func fetchProfileImage(imageUrl : URL? , completion : @escaping(UIImage?,Error?)->())
 }

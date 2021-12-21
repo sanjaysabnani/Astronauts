@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import UIKit
+
+struct MockAPIHelper : APIServiceProtocol {
+    func fetchAstronauts(completion: @escaping (AstronautsData?, Error?) -> ()) {
+        completion(nil,AstronautAppError.mockAPIError)
+    }
+    
+    func fetchProfileImage(imageUrl: URL?, completion: @escaping (UIImage?, Error?) -> ()) {
+        completion(nil, AstronautAppError.mockAPIError)
+    }
+    
+    
+}

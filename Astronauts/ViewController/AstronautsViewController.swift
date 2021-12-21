@@ -11,7 +11,7 @@ class AstronautsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let astronatutsViewModel = AstronautsViewModel()
+    let astronatutsViewModel = AstronautsViewModel(apiServiceProtocol: APIHelper.shared)
     var astronauts = [Astronaut] ()
     override func viewDidLoad() {
         super.viewDidLoad()
