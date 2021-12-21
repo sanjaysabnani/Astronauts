@@ -29,6 +29,7 @@ struct Astronaut: Codable {
     let profile_image: String?
     let profile_image_thumbnail: String?
     let lastFlight, firstFlight: Date?
+    let date_of_birth : String?
 
 }
 

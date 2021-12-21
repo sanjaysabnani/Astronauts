@@ -18,7 +18,6 @@
 		A50621AF2770054000FEB6A2 /* AstronautsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621AE2770054000FEB6A2 /* AstronautsUITests.swift */; };
 		A50621B12770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621B02770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift */; };
 		A50621C72770093F00FEB6A2 /* AstronautsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621C62770093F00FEB6A2 /* AstronautsViewModel.swift */; };
-		A50621C92770095600FEB6A2 /* AstronautDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621C82770095600FEB6A2 /* AstronautDetailsViewModel.swift */; };
 		A50621CB27700BA500FEB6A2 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621CA27700BA500FEB6A2 /* Astronaut.swift */; };
 		A50621CD27700F4300FEB6A2 /* AstronautDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621CC27700F4300FEB6A2 /* AstronautDetailsViewController.swift */; };
 		A50621CF2770104A00FEB6A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621CE2770104A00FEB6A2 /* Constants.swift */; };
@@ -28,7 +27,7 @@
 		A50621D7277010E300FEB6A2 /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621D6277010E300FEB6A2 /* APIServiceProtocol.swift */; };
 		A50621D9277013CF00FEB6A2 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621D8277013CF00FEB6A2 /* CustomError.swift */; };
 		A50621DB2770395F00FEB6A2 /* AstronautCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621DA2770395F00FEB6A2 /* AstronautCell.swift */; };
-		A526AE6C277049F5000672ED /* AstronautCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526AE6B277049F5000672ED /* AstronautCellViewModel.swift */; };
+		A526AE6C277049F5000672ED /* AstronautDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526AE6B277049F5000672ED /* AstronautDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		A50621AE2770054000FEB6A2 /* AstronautsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITests.swift; sourceTree = "<group>"; };
 		A50621B02770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A50621C62770093F00FEB6A2 /* AstronautsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsViewModel.swift; sourceTree = "<group>"; };
-		A50621C82770095600FEB6A2 /* AstronautDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailsViewModel.swift; sourceTree = "<group>"; };
 		A50621CA27700BA500FEB6A2 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		A50621CC27700F4300FEB6A2 /* AstronautDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailsViewController.swift; sourceTree = "<group>"; };
 		A50621CE2770104A00FEB6A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -74,7 +72,7 @@
 		A50621D6277010E300FEB6A2 /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		A50621D8277013CF00FEB6A2 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		A50621DA2770395F00FEB6A2 /* AstronautCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautCell.swift; sourceTree = "<group>"; };
-		A526AE6B277049F5000672ED /* AstronautCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautCellViewModel.swift; sourceTree = "<group>"; };
+		A526AE6B277049F5000672ED /* AstronautDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A50621C62770093F00FEB6A2 /* AstronautsViewModel.swift */,
-				A50621C82770095600FEB6A2 /* AstronautDetailsViewModel.swift */,
-				A526AE6B277049F5000672ED /* AstronautCellViewModel.swift */,
+				A526AE6B277049F5000672ED /* AstronautDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -373,13 +370,12 @@
 				A506218F2770053E00FEB6A2 /* AstronautsViewController.swift in Sources */,
 				A50621C72770093F00FEB6A2 /* AstronautsViewModel.swift in Sources */,
 				A50621D5277010BA00FEB6A2 /* MockAPIHelper.swift in Sources */,
-				A526AE6C277049F5000672ED /* AstronautCellViewModel.swift in Sources */,
+				A526AE6C277049F5000672ED /* AstronautDetailsViewModel.swift in Sources */,
 				A506218B2770053E00FEB6A2 /* AppDelegate.swift in Sources */,
 				A50621D12770108000FEB6A2 /* APIClient.swift in Sources */,
 				A50621CB27700BA500FEB6A2 /* Astronaut.swift in Sources */,
 				A50621DB2770395F00FEB6A2 /* AstronautCell.swift in Sources */,
 				A50621D9277013CF00FEB6A2 /* CustomError.swift in Sources */,
-				A50621C92770095600FEB6A2 /* AstronautDetailsViewModel.swift in Sources */,
 				A50621CD27700F4300FEB6A2 /* AstronautDetailsViewController.swift in Sources */,
 				A506218D2770053E00FEB6A2 /* SceneDelegate.swift in Sources */,
 				A50621952770053E00FEB6A2 /* Astronauts.xcdatamodeld in Sources */,
@@ -568,7 +564,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -597,7 +593,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

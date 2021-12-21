@@ -15,13 +15,12 @@ class AstronautsViewController: UIViewController {
     var astronauts = [Astronaut] ()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         setUpView()
-        
-        
     }
     func setUpView(){
         self.tableView.tableFooterView = UIView()
+        self.tableView.delegate = self
         self.title = "Astronauts"
         self.navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "sort"), style: .plain, target: self, action: nil), animated: true)
         fetchData()
@@ -39,6 +38,18 @@ class AstronautsViewController: UIViewController {
                     self?.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "astronautDetails"){
+            let astronautDeailsViewController = segue.destination as? AstronautDetailsViewController
+            if let indexPath = sender as? IndexPath {
+                astronautDeailsViewController?.astronaut = astronauts[indexPath.row]
+            }
+            
         }
     }
 }
@@ -59,6 +70,10 @@ extension AstronautsViewController : UITableViewDataSource, UITableViewDelegate 
     }
     
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "astronautDetails", sender: indexPath)
+
+    }
     
 }

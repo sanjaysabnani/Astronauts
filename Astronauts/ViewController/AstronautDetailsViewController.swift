@@ -8,22 +8,47 @@
 import UIKit
 
 class AstronautDetailsViewController: UIViewController {
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var dobLabel: UILabel!
+    @IBOutlet weak var bioTextView: UITextView!
 
+    var astronaut : Astronaut?
+       
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpView(with: astronaut)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setUpView(with astronaut : Astronaut?){
+        guard let astronaut = astronaut else {
+            return
+        }
+        
+        let astronautDetailsViewModel = AstronautDetailsViewModel(astronaut: astronaut, apiServiceProtocol: APIHelper.shared)
+        let imgUrl = astronautDetailsViewModel.profileImageURL
+        
+        astronautDetailsViewModel.fetchProfileImage(url: imgUrl) { [weak self]image, error in
+            DispatchQueue.main.async {
+                self?.profileImageView.image = image
+            
+            }
+        }
+        
+        self.nameLabel.text = astronautDetailsViewModel.name
+        self.countryLabel.text = astronautDetailsViewModel.nationality
+        self.dobLabel.text = astronautDetailsViewModel.dob
+        
+        self.bioTextView.text = astronautDetailsViewModel.bio
+        
+        
     }
-    */
-
+    
+    deinit {
+        print("Deinit AstronautDetailsViewController")
+    }
 }

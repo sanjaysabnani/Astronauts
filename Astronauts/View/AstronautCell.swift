@@ -18,16 +18,20 @@ class AstronautCell: UITableViewCell {
     }
 
     func setUpView(with astronaut : Astronaut){
-        let astronautCellViewModel = AstronautCellViewModel(astronaut: astronaut, apiServiceProtocol: APIHelper.shared)
         
-        self.nameLabel.text = astronautCellViewModel.name
-        self.countryLabel.text = astronautCellViewModel.nationality
-        astronautCellViewModel.fetchProfileImage { [weak self] image, error in
+        
+        let astronautCellViewModel = AstronautDetailsViewModel(astronaut: astronaut, apiServiceProtocol: APIHelper.shared)
+        let imgUrl = astronautCellViewModel.profileThumbnailImageURL
+        
+        astronautCellViewModel.fetchProfileImage(url: imgUrl) { [weak self] image, error in
             DispatchQueue.main.async {
                 self?.profileImageView.image = image
             
             }
         }
+        self.nameLabel.text = astronautCellViewModel.name
+        self.countryLabel.text = astronautCellViewModel.nationality
+        
     }
 
 }
