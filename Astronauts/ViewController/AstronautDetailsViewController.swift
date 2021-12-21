@@ -13,6 +13,8 @@ class AstronautDetailsViewController: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var bioTextView: UITextView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var astronautID : Int?
     
@@ -29,7 +31,7 @@ class AstronautDetailsViewController: UIViewController {
         
         let astronautDetailsViewModel = AstronautDetailsViewModel(astronautID: astronautID, apiServiceProtocol: APIHelper.shared)
             astronautDetailsViewModel.fetchAstronautDetails {[weak self] astronaut, error in
-               
+                
                 if let error = error {
                     print(error.localizedDescription)
                     
@@ -41,7 +43,7 @@ class AstronautDetailsViewController: UIViewController {
                     
                     self?.nameLabel.text = astronaut.name
                     self?.countryLabel.text = "Nationality : \(astronaut.nationality)"
-                    self?.dobLabel.text = "DOB : \(astronaut.date_of_birth ??  "Unknown")"
+                    self?.dobLabel.text = "DOB : \(astronaut.date_of_birth ??  Constants.Strings.unknown)"
                     self?.bioTextView.text = astronaut.bio
                     
                 }
@@ -49,6 +51,7 @@ class AstronautDetailsViewController: UIViewController {
                     
                     astronautDetailsViewModel.fetchProfileImage(url: imgUrl) { [weak self]image, error in
                         DispatchQueue.main.async {
+                            self?.activityIndicator.stopAnimating()
                             self?.profileImageView.image = image
                         
                         }

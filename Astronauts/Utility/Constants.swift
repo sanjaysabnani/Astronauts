@@ -11,4 +11,23 @@ public struct Constants {
         static let baseURL = "https://spacelaunchnow.me/api/3.5.0/astronaut/"
         
     }
+    public struct Identifiers {
+        static let astronautCell = "astronautCell"
+        
+    }
+    public struct segues {
+        static let astronautDetailSegue = "astronautDetails"
+        
+    }
+    public struct Titles {
+        static let astronauts = "Astronauts"
+    }
+    public struct Assets {
+        public struct Images {
+            static let sort = "sort"
+        }
+    }
+    public struct Strings {
+        static  let unknown = "Unknown"
+    }
 }

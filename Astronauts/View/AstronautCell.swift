@@ -11,10 +11,11 @@ class AstronautCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.profileImageView.layer.cornerRadius = 25.0
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height/2
     }
 
     func setUpView(with astronaut : Astronaut){
@@ -25,8 +26,9 @@ class AstronautCell: UITableViewCell {
         
         astronautCellViewModel.fetchProfileImage(url: imgUrl) { [weak self] image, error in
             DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
                 self?.profileImageView.image = image
-            
+                
             }
         }
         self.nameLabel.text = astronautCellViewModel.name

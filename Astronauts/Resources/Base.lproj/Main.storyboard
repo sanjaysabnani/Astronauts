@@ -60,18 +60,24 @@
                                                         <constraint firstItem="xiI-pV-1xe" firstAttribute="top" secondItem="TNW-ZD-1P7" secondAttribute="top" id="mbJ-Vl-SXH"/>
                                                     </constraints>
                                                 </stackView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Es7-gi-RD4">
+                                                    <rect key="frame" x="35" y="50" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="TNW-ZD-1P7" secondAttribute="bottom" constant="28" id="3cx-ZZ-jrW"/>
                                                 <constraint firstItem="BFm-GF-STK" firstAttribute="centerY" secondItem="fhR-sD-G9G" secondAttribute="centerY" id="7Sm-Od-i5p"/>
+                                                <constraint firstItem="Es7-gi-RD4" firstAttribute="centerY" secondItem="BFm-GF-STK" secondAttribute="centerY" id="8Ce-Ij-6qC"/>
                                                 <constraint firstItem="TNW-ZD-1P7" firstAttribute="top" secondItem="fhR-sD-G9G" secondAttribute="topMargin" constant="28" id="EiN-TL-PMh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TNW-ZD-1P7" secondAttribute="trailing" constant="10" id="QQY-D3-vQH"/>
                                                 <constraint firstItem="TNW-ZD-1P7" firstAttribute="centerY" secondItem="fhR-sD-G9G" secondAttribute="centerY" id="jwj-uc-sd5"/>
+                                                <constraint firstItem="Es7-gi-RD4" firstAttribute="centerX" secondItem="BFm-GF-STK" secondAttribute="centerX" id="vFo-Fe-eHG"/>
                                                 <constraint firstItem="TNW-ZD-1P7" firstAttribute="leading" secondItem="BFm-GF-STK" secondAttribute="trailing" constant="10" id="wl7-ui-SPe"/>
                                                 <constraint firstItem="BFm-GF-STK" firstAttribute="leading" secondItem="fhR-sD-G9G" secondAttribute="leading" constant="20" id="zy5-Za-cZG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="Es7-gi-RD4" id="EVJ-0k-mDj"/>
                                             <outlet property="countryLabel" destination="kfN-WO-Vfg" id="kiG-Fg-6Jw"/>
                                             <outlet property="nameLabel" destination="xiI-pV-1xe" id="2Or-JP-XyB"/>
                                             <outlet property="profileImageView" destination="BFm-GF-STK" id="z7A-g4-afj"/>
@@ -86,6 +92,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="P0U-sd-Kwy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="F3x-Jr-i3v"/>
                             <constraint firstItem="P0U-sd-Kwy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SB6-Cg-d1Y"/>
@@ -143,6 +150,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="aiu-SS-4LG">
+                                <rect key="frame" x="197" y="208" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="DOB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zor-sT-Ja4">
                                 <rect key="frame" x="378" y="374" width="28" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -152,9 +162,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t80-mk-3u4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tlv-LJ-2g7" firstAttribute="leading" secondItem="t80-mk-3u4" secondAttribute="leading" constant="8" id="3Rf-hM-F54"/>
                             <constraint firstItem="YlS-hZ-vn6" firstAttribute="centerX" secondItem="TCb-jT-HUs" secondAttribute="centerX" id="3sB-4g-Fni"/>
+                            <constraint firstItem="aiu-SS-4LG" firstAttribute="centerX" secondItem="YlS-hZ-vn6" secondAttribute="centerX" id="B50-4a-Z7m"/>
                             <constraint firstItem="XNg-S8-KXs" firstAttribute="top" secondItem="sKq-Dv-V63" secondAttribute="bottom" constant="20" id="Bd8-D7-zS0"/>
                             <constraint firstItem="t80-mk-3u4" firstAttribute="trailing" secondItem="zor-sT-Ja4" secondAttribute="trailing" constant="8" id="F1D-Sw-eDI"/>
                             <constraint firstItem="t80-mk-3u4" firstAttribute="trailing" secondItem="tlv-LJ-2g7" secondAttribute="trailing" constant="8" id="HJp-Vv-dpS"/>
@@ -164,12 +176,14 @@
                             <constraint firstItem="YlS-hZ-vn6" firstAttribute="top" secondItem="t80-mk-3u4" secondAttribute="top" constant="10" id="Vtq-H0-Lnd"/>
                             <constraint firstItem="zor-sT-Ja4" firstAttribute="top" secondItem="tlv-LJ-2g7" secondAttribute="bottom" constant="8" id="W42-Po-zb3"/>
                             <constraint firstItem="XNg-S8-KXs" firstAttribute="leading" secondItem="t80-mk-3u4" secondAttribute="leading" constant="8" id="bVY-k2-Z5R"/>
+                            <constraint firstItem="aiu-SS-4LG" firstAttribute="centerY" secondItem="YlS-hZ-vn6" secondAttribute="centerY" id="ebs-av-khO"/>
                             <constraint firstItem="tlv-LJ-2g7" firstAttribute="top" secondItem="YlS-hZ-vn6" secondAttribute="bottom" constant="8" id="kXu-GX-GQh"/>
                             <constraint firstItem="t80-mk-3u4" firstAttribute="trailing" secondItem="XNg-S8-KXs" secondAttribute="trailing" constant="8" id="xLZ-sc-iRg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Onf-9K-OZM"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="aiu-SS-4LG" id="HHt-TW-1Wq"/>
                         <outlet property="bioTextView" destination="XNg-S8-KXs" id="YwR-mL-bqO"/>
                         <outlet property="countryLabel" destination="sKq-Dv-V63" id="fDn-8A-7cS"/>
                         <outlet property="dobLabel" destination="zor-sT-Ja4" id="ga6-YV-tsN"/>
@@ -189,6 +203,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUZ-uK-3jZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -200,6 +215,7 @@
             <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

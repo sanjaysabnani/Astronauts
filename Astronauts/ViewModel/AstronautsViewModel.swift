@@ -23,6 +23,10 @@ struct AstronautsViewModel {
             }
         
     }
+    func sort(astronauts : [Astronaut], ascending : Bool = true )-> [Astronaut]{
+        ascending ? astronauts.sorted(by: {$0.name < $1.name}) : astronauts.sorted(by: {$0.name > $1.name})
+        
+    }
     
 
     
