@@ -27,7 +27,7 @@ class AstronautsViewController: UIViewController {
     }
     func fetchData(){
         
-        astronatutsViewModel.getAstronautsList { [weak self]astronauts, error in
+        astronatutsViewModel.getAstronautsList(url: URL(string: Constants.API.baseURL)!) { [weak self]astronauts, error in
             if let error  = error {
                 //TO-DO show Alert
                 print(error.localizedDescription)
@@ -47,7 +47,7 @@ class AstronautsViewController: UIViewController {
         if(segue.identifier == "astronautDetails"){
             let astronautDeailsViewController = segue.destination as? AstronautDetailsViewController
             if let indexPath = sender as? IndexPath {
-                astronautDeailsViewController?.astronaut = astronauts[indexPath.row]
+                astronautDeailsViewController?.astronautID = astronauts[indexPath.row].id
             }
             
         }

@@ -14,36 +14,52 @@ class AstronautDetailsViewController: UIViewController {
     @IBOutlet weak var dobLabel: UILabel!
     @IBOutlet weak var bioTextView: UITextView!
 
-    var astronaut : Astronaut?
+    var astronautID : Int?
        
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView(with: astronaut)
+        setUpView(with: astronautID)
     }
     
     
-    func setUpView(with astronaut : Astronaut?){
-        guard let astronaut = astronaut else {
+    func setUpView(with astronautID : Int?){
+        guard let astronautID = astronautID else {
             return
         }
         
-        let astronautDetailsViewModel = AstronautDetailsViewModel(astronaut: astronaut, apiServiceProtocol: APIHelper.shared)
-        let imgUrl = astronautDetailsViewModel.profileImageURL
-        
-        astronautDetailsViewModel.fetchProfileImage(url: imgUrl) { [weak self]image, error in
-            DispatchQueue.main.async {
-                self?.profileImageView.image = image
-            
-            }
+        let astronautDetailsViewModel = AstronautDetailsViewModel(astronautID: astronautID, apiServiceProtocol: APIHelper.shared)
+            astronautDetailsViewModel.fetchAstronautDetails {[weak self] astronaut, error in
+               
+                if let error = error {
+                    print(error.localizedDescription)
+                    
+                }
+                
+                guard let astronaut = astronaut else { return  }
+                
+                DispatchQueue.main.async {
+                    
+                    self?.nameLabel.text = astronaut.name
+                    self?.countryLabel.text = astronaut.nationality
+                    self?.dobLabel.text = astronaut.date_of_birth
+                    self?.bioTextView.text = astronaut.bio
+                    
+                }
+                if let imgUrl = URL(string: astronaut.profile_image!) {
+                    
+                    astronautDetailsViewModel.fetchProfileImage(url: imgUrl) { [weak self]image, error in
+                        DispatchQueue.main.async {
+                            self?.profileImageView.image = image
+                        
+                        }
+                    }
+                }
+                
         }
         
-        self.nameLabel.text = astronautDetailsViewModel.name
-        self.countryLabel.text = astronautDetailsViewModel.nationality
-        self.dobLabel.text = astronautDetailsViewModel.dob
         
-        self.bioTextView.text = astronautDetailsViewModel.bio
         
         
     }

@@ -8,7 +8,7 @@
 import Foundation
 public struct Constants {
     public struct API {
-        static let baseURL = "https://spacelaunchnow.me/api/3.5.0/astronaut"
+        static let baseURL = "https://spacelaunchnow.me/api/3.5.0/astronaut/"
         
     }
 }

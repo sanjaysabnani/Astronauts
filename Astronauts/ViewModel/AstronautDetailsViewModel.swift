@@ -10,8 +10,8 @@ import UIKit
 
 struct AstronautDetailsViewModel {
     var id : Int
-    var name : String
-    var nationality : String
+    var name : String?
+    var nationality : String?
     var profileThumbnailImageURL : URL?
     var profileImageURL : URL?
     var bio : String?
@@ -28,6 +28,26 @@ struct AstronautDetailsViewModel {
         self.dob = astronaut.date_of_birth
         self.apiServiceProtocol = apiServiceProtocol
     }
+    
+    init(astronautID : Int, apiServiceProtocol : APIServiceProtocol) {
+        self.id = astronautID
+        self.apiServiceProtocol = apiServiceProtocol
+    }
+    
+    func fetchAstronautDetails(completion: @escaping (Astronaut?, Error?) -> Void) {
+        let detailURL = URL(string: Constants.API.baseURL+String(self.id))!
+        self.apiServiceProtocol.fetchAstronautDetail(url: detailURL) { astronautDetail, error in
+            if let  error = error {
+                print(error.localizedDescription)
+                completion(astronautDetail, error)
+            }
+            else {
+                completion(astronautDetail,error)
+            }
+        }
+        
+        }
+    
 
     func fetchProfileImage(url : URL?, completion : @escaping (UIImage?, Error?)->()){
         self.apiServiceProtocol.fetchProfileImage(imageUrl: url) { image, error in

@@ -10,15 +10,15 @@ import UIKit
 
 class APIHelper : APIServiceProtocol {
     
+    
     static let shared = APIHelper()
     private let apiClient = APIClient()
     private let cachedImages = NSCache<NSURL, UIImage>()
     
-    func fetchAstronauts(completion: @escaping (AstronautsData?, Error?) -> ()) {
-        let astronaughtsURL = URL(string: Constants.API.baseURL)!
+    func fetchAstronauts(url : URL, completion: @escaping (AstronautsData?, Error?) -> ()) {
         var astronautsData : AstronautsData?
         
-        apiClient.jsonDataTask(url: astronaughtsURL) { data, error in
+        apiClient.jsonDataTask(url: url) { data, error in
             
             if (error != nil){
                 completion(astronautsData,error)
@@ -41,6 +41,31 @@ class APIHelper : APIServiceProtocol {
         }
         
     }
+    func fetchAstronautDetail(url : URL, completion: @escaping (Astronaut?, Error?) -> ()) {
+        var astronaut : Astronaut?
+        apiClient.jsonDataTask(url: url) { data, error in
+            
+            if (error != nil){
+                completion(astronaut,error)
+            }
+            else {
+                if let astronautsAPIData = data {
+                    do {
+                        
+                        astronaut = try JSONDecoder().decode(Astronaut.self , from: astronautsAPIData)
+                        completion(astronaut,error)
+                    }
+                    catch {
+                        completion(astronaut,AstronautAppError.jsonParsingError)
+                    }
+                }
+                else {
+                    completion(astronaut,AstronautAppError.noResultsFound)
+                }
+            }
+        }
+    }
+    
     
     func fetchProfileImage(imageUrl : URL? , completion : @escaping(UIImage?,Error?)->()){
         guard let  imageUrl = imageUrl else {
