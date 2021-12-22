@@ -21,12 +21,12 @@ class AstronautCell: UITableViewCell {
     func setUpView(with astronaut : Astronaut){
         
         
-        let astronautCellViewModel = AstronautDetailsViewModel(astronaut: astronaut, apiServiceProtocol: APIHelper.shared)
+        let astronautCellViewModel = AstronautCellViewModel(astronaut: astronaut, apiServiceProtocol: APIHelper.shared)
         
         let imgUrl = astronautCellViewModel.profileThumbnailImageURL
         
         self.profileImageView.image = UIImage(systemName: "person.crop.circle")
-        astronautCellViewModel.fetchProfileImage(url: imgUrl) { [weak self] result  in
+        astronautCellViewModel.fetchThumbnailProfileImage(url: imgUrl) { [weak self] result  in
             
             switch result {
             case .success(let image):

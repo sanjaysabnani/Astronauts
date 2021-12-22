@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+@testable import Astronauts
 
 struct MockAPIHelper : APIServiceProtocol {
     var shouldThrowError : Bool
