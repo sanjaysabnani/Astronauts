@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,7 @@
 		A50621922770053E00FEB6A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50621902770053E00FEB6A2 /* Main.storyboard */; };
 		A50621972770054000FEB6A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50621962770054000FEB6A2 /* Assets.xcassets */; };
 		A506219A2770054000FEB6A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50621982770054000FEB6A2 /* LaunchScreen.storyboard */; };
-		A50621A52770054000FEB6A2 /* AstronautsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621A42770054000FEB6A2 /* AstronautsTests.swift */; };
+		A50621A52770054000FEB6A2 /* AstronautsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621A42770054000FEB6A2 /* AstronautsViewModelTests.swift */; };
 		A50621AF2770054000FEB6A2 /* AstronautsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621AE2770054000FEB6A2 /* AstronautsUITests.swift */; };
 		A50621B12770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621B02770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift */; };
 		A50621C72770093F00FEB6A2 /* AstronautsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621C62770093F00FEB6A2 /* AstronautsViewModel.swift */; };
@@ -61,7 +61,7 @@
 		A50621992770054000FEB6A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A506219B2770054000FEB6A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A50621A02770054000FEB6A2 /* AstronautsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronautsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A50621A42770054000FEB6A2 /* AstronautsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsTests.swift; sourceTree = "<group>"; };
+		A50621A42770054000FEB6A2 /* AstronautsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsViewModelTests.swift; sourceTree = "<group>"; };
 		A50621AA2770054000FEB6A2 /* AstronautsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronautsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50621AE2770054000FEB6A2 /* AstronautsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITests.swift; sourceTree = "<group>"; };
 		A50621B02770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		A50621A32770054000FEB6A2 /* AstronautsTests */ = {
 			isa = PBXGroup;
 			children = (
-				A50621A42770054000FEB6A2 /* AstronautsTests.swift */,
+				A50621A42770054000FEB6A2 /* AstronautsViewModelTests.swift */,
 				A526AE6F2772BFF6000672ED /* APITests.swift */,
 				A526AE752772E112000672ED /* MockAPITests.swift */,
 			);
@@ -309,7 +309,6 @@
 		A506217F2770053E00FEB6A2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
@@ -327,7 +326,7 @@
 				};
 			};
 			buildConfigurationList = A50621822770053E00FEB6A2 /* Build configuration list for PBXProject "Astronauts" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -404,7 +403,7 @@
 			files = (
 				A526AE702772BFF6000672ED /* APITests.swift in Sources */,
 				A526AE762772E112000672ED /* MockAPITests.swift in Sources */,
-				A50621A52770054000FEB6A2 /* AstronautsTests.swift in Sources */,
+				A50621A52770054000FEB6A2 /* AstronautsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

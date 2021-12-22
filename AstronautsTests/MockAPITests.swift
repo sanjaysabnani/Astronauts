@@ -25,17 +25,18 @@ final class MockAPITests: XCTestCase {
         let expectation = self.expectation(description: "Server Response")
         defer {waitForExpectations(timeout: 3)}
         
-        mockAPIWithError?.fetchAstronauts(url: URL(string: Constants.API.baseURL)!) { result in
-            defer { expectation.fulfill() }
-            switch result {
-            case .success(_):
-                XCTFail("MockAPI should throw error")
-            case .failure(let error):
-                XCTAssertNotNil(error, "Mock API Error should not be nil.")
-            }
-            
-        }
+        mockAPIWithError?.fetchProfileImage(imageUrl: URL(string:"abc"),completion: { result  in
+                defer { expectation.fulfill() }
+                switch result {
+                case .success(_):
+                    XCTFail("MockAPI should throw error")
+                case .failure(let error):
+                    XCTAssertNotNil(error, "Mock API Error should not be nil.")
+                }
+        })
     }
+    
+                                            
     func test_MockAPIDecoding() throws  {
         
         let expectation = self.expectation(description: "Server Response")
@@ -50,7 +51,25 @@ final class MockAPITests: XCTestCase {
             case .failure(_):
                 XCTFail("MockAPI should not throw error")
 
-                            }
+            }
+        }
+    }
+    
+    func test_MockAPIAstronaut() throws  {
+        
+        let expectation = self.expectation(description: "Server Response")
+        defer {waitForExpectations(timeout: 3)}
+        
+        mockAPI?.fetchAstronauts(url: URL(string: Constants.API.baseURL)!) { result in
+            defer { expectation.fulfill() }
+            switch result {
+            case .success(let astronautsData):
+                XCTAssertNotNil(astronautsData, "Mock API Error should decode AstronautsData")
+
+            case .failure(_):
+                XCTFail("MockAPI should not throw error")
+
+            }
         }
     }
 
