@@ -9,18 +9,17 @@ import Foundation
 import UIKit
 
 struct MockAPIHelper : APIServiceProtocol {
-    func fetchAstronauts(url: URL, completion: @escaping (AstronautsData?, Error?) -> ()) {
-        completion(nil,AstronautAppError.mockAPIError)
+    
+    func fetchAstronauts(url: URL, completion: @escaping (Result<AstronautsData, Error>) -> ()) {
+        
     }
     
-    func fetchAstronautDetail(url : URL, completion: @escaping (Astronaut?, Error?) -> ()) {
-        return
+    func fetchProfileImage(imageUrl: URL?, completion: @escaping (Result<UIImage, Error>) -> ()) {
+        
     }
     
-    
-    func fetchProfileImage(imageUrl: URL?, completion: @escaping (UIImage?, Error?) -> ()) {
-        completion(nil, AstronautAppError.mockAPIError)
+    func fetchAstronautDetail(url: URL, completion: @escaping (Result<Astronaut, Error>) -> ()) {
+        
     }
-    
     
 }

@@ -10,18 +10,17 @@ import Foundation
 struct AstronautsViewModel {
     var apiServiceProtocol : APIServiceProtocol
     
-    func getAstronautsList(url : URL, completion: @escaping ([Astronaut], Error?) -> ()){
-      var astronauts = [Astronaut]()
-        apiServiceProtocol.fetchAstronauts(url: url) { astronautsData, error in
-            if(error != nil){
-                completion(astronauts, error)
-            }
-            else {
-                    astronauts = astronautsData?.results ?? []
-                    completion(astronauts,error)
-                }
-            }
+    func getAstronautsList(url : URL, completion: @escaping (Result<[Astronaut], Error>) -> ()){
         
+        apiServiceProtocol.fetchAstronauts(url: url) { result in
+           
+            switch result {
+            case .success(let astronautsData):
+                completion(.success(astronautsData.results))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
     func sort(astronauts : [Astronaut], ascending : Bool = true )-> [Astronaut]{
         ascending ? astronauts.sorted(by: {$0.name < $1.name}) : astronauts.sorted(by: {$0.name > $1.name})

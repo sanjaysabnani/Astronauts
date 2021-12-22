@@ -10,9 +10,11 @@ import UIKit
 
 protocol APIServiceProtocol {
     
-    func fetchAstronauts(url : URL, completion : @escaping (_ astronauts  : AstronautsData?, _ error : Error?)->())
+    func fetchAstronauts(url : URL, completion : @escaping (Result<AstronautsData, Error>)->())
     
-    func fetchProfileImage(imageUrl : URL? , completion : @escaping(UIImage?,Error?)->())
     
-    func fetchAstronautDetail(url : URL, completion : @escaping (_ astronautDetail  : Astronaut?, _ error : Error?)->())
+    func fetchProfileImage(imageUrl : URL? , completion : @escaping( Result<UIImage,Error>)->())
+    
+    func fetchAstronautDetail(url : URL, completion : @escaping (Result<Astronaut, Error>)->())
+    
 }

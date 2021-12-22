@@ -9,95 +9,78 @@ import Foundation
 import UIKit
 
 class APIHelper : APIServiceProtocol {
-    
-    
     static let shared = APIHelper()
     private let apiClient = APIClient()
     private let cachedImages = NSCache<NSURL, UIImage>()
     
-    func fetchAstronauts(url : URL, completion: @escaping (AstronautsData?, Error?) -> ()) {
-        var astronautsData : AstronautsData?
-        
-        apiClient.jsonDataTask(url: url) { data, error in
-            
-            if (error != nil){
-                completion(astronautsData,error)
-            }
-            else {
-                if let astronautsAPIData = data {
-                    do {
-                        
-                      astronautsData = try JSONDecoder().decode(AstronautsData.self , from: astronautsAPIData)
-                        completion(astronautsData,error)
-                    }
-                    catch {
-                        completion(astronautsData,AstronautAppError.jsonParsingError)
-                    }
+    func fetchAstronauts(url: URL, completion: @escaping (Result<AstronautsData, Error>) -> ()) {
+        apiClient.jsonDataTask(url: url) { result in
+           switch result {
+                case .success(let data):
+                do {
+                    
+                 let astronautsData = try JSONDecoder().decode(AstronautsData.self , from: data)
+                    completion(.success(astronautsData))
                 }
-                else {
-                    completion(astronautsData,AstronautAppError.noResultsFound)
+                catch {
+                    completion(.failure(AstronautAppError.jsonParsingError))
                 }
-            }
-        }
-        
-    }
-    func fetchAstronautDetail(url : URL, completion: @escaping (Astronaut?, Error?) -> ()) {
-        var astronaut : Astronaut?
-        apiClient.jsonDataTask(url: url) { data, error in
-            
-            if (error != nil){
-                completion(astronaut,error)
-            }
-            else {
-                if let astronautsAPIData = data {
-                    do {
-                        
-                        astronaut = try JSONDecoder().decode(Astronaut.self , from: astronautsAPIData)
-                        completion(astronaut,error)
-                    }
-                    catch {
-                        completion(astronaut,AstronautAppError.jsonParsingError)
-                    }
-                }
-                else {
-                    completion(astronaut,AstronautAppError.noResultsFound)
-                }
-            }
+                    
+                case .failure(let error):
+               completion(.failure(error))
+                    
         }
     }
+    }
     
-    
-    func fetchProfileImage(imageUrl : URL? , completion : @escaping(UIImage?,Error?)->()){
+    func fetchProfileImage(imageUrl: URL?, completion: @escaping (Result<UIImage, Error>) -> ()) {
         guard let  imageUrl = imageUrl else {
-            completion(nil, AstronautAppError.invalidUrl)
+            completion(.failure (AstronautAppError.invalidUrl))
             return
         }
         //Getting cached Image
         if let cachedImage = cachedImages.object(forKey: imageUrl as NSURL){
-           completion(cachedImage,nil)
+            completion(.success(cachedImage))
             return
         }
         
         
-        apiClient.downloadDataTask(url: imageUrl) { data, error in
-            var image : UIImage?
-            if let error = error {
-                print(error.localizedDescription)
-                completion(image, error)
-            }
-            else {
-                if let  img = UIImage(data: data!){
-                    image = img
-                    self.cachedImages.setObject(image!, forKey: imageUrl as NSURL)
+        apiClient.downloadDataTask(url: imageUrl) { result in
+            switch result {
+                
+            case .success(let data):
+                if let  img = UIImage(data: data){
                     
-                    completion(image,error)
+                    self.cachedImages.setObject(img, forKey: imageUrl as NSURL)
+                    
+                    completion(.success(img))
                 }
                 else {
-                    completion(image, AstronautAppError.invalidFile)
+                    completion(.failure(AstronautAppError.invalidFile))
                 }
+            case .failure(let error):
+                completion(.failure(error))
             }
-            
         }
     }
     
+    func fetchAstronautDetail(url: URL, completion: @escaping (Result<Astronaut, Error>) -> ()) {
+        
+        apiClient.jsonDataTask(url: url) { result in
+            
+            switch result {
+            case .success(let astronautData) :
+                do {
+                    
+                    let astronaut = try JSONDecoder().decode(Astronaut.self , from: astronautData)
+                    completion(.success(astronaut))
+                }
+                catch {
+                    completion(.failure(AstronautAppError.jsonParsingError))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

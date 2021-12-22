@@ -26,25 +26,25 @@ class AstronautsViewController: UIViewController {
         
         fetchData()
     }
-    @objc func sortAstronauts(){
+    @objc func sortAstronauts() {
         let sortedList =  astronatutsViewModel.sort(astronauts: astronauts, ascending: sorted)
             sorted = !sorted
             astronauts = sortedList
         self.tableView.reloadData()
+        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .middle, animated: true)
         }
     
     func fetchData(){
         
-        astronatutsViewModel.getAstronautsList(url: URL(string: Constants.API.baseURL)!) { [weak self]astronauts, error in
-            if let error  = error {
-                //TO-DO show Alert
-                print(error.localizedDescription)
-            }
-            else {
+        astronatutsViewModel.getAstronautsList(url: URL(string: Constants.API.baseURL)!) { [weak self] result in
+            switch result {
+            case .success(let astronauts):
                 self?.astronauts = astronauts
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

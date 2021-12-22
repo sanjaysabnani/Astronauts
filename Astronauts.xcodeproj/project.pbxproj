@@ -11,7 +11,6 @@
 		A506218D2770053E00FEB6A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A506218C2770053E00FEB6A2 /* SceneDelegate.swift */; };
 		A506218F2770053E00FEB6A2 /* AstronautsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A506218E2770053E00FEB6A2 /* AstronautsViewController.swift */; };
 		A50621922770053E00FEB6A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50621902770053E00FEB6A2 /* Main.storyboard */; };
-		A50621952770053E00FEB6A2 /* Astronauts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A50621932770053E00FEB6A2 /* Astronauts.xcdatamodeld */; };
 		A50621972770054000FEB6A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50621962770054000FEB6A2 /* Assets.xcassets */; };
 		A506219A2770054000FEB6A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50621982770054000FEB6A2 /* LaunchScreen.storyboard */; };
 		A50621A52770054000FEB6A2 /* AstronautsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621A42770054000FEB6A2 /* AstronautsTests.swift */; };
@@ -53,7 +52,6 @@
 		A506218C2770053E00FEB6A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A506218E2770053E00FEB6A2 /* AstronautsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsViewController.swift; sourceTree = "<group>"; };
 		A50621912770053E00FEB6A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A50621942770053E00FEB6A2 /* Astronauts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Astronauts.xcdatamodel; sourceTree = "<group>"; };
 		A50621962770054000FEB6A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A50621992770054000FEB6A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A506219B2770054000FEB6A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				A50621BE277006C600FEB6A2 /* App */,
 				A50621BD277006BB00FEB6A2 /* View */,
 				A506219B2770054000FEB6A2 /* Info.plist */,
-				A50621932770053E00FEB6A2 /* Astronauts.xcdatamodeld */,
 			);
 			path = Astronauts;
 			sourceTree = "<group>";
@@ -378,7 +375,6 @@
 				A50621D9277013CF00FEB6A2 /* CustomError.swift in Sources */,
 				A50621CD27700F4300FEB6A2 /* AstronautDetailsViewController.swift in Sources */,
 				A506218D2770053E00FEB6A2 /* SceneDelegate.swift in Sources */,
-				A50621952770053E00FEB6A2 /* Astronauts.xcdatamodeld in Sources */,
 				A50621D3277010AE00FEB6A2 /* APIHelper.swift in Sources */,
 				A50621CF2770104A00FEB6A2 /* Constants.swift in Sources */,
 			);
@@ -722,19 +718,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A50621932770053E00FEB6A2 /* Astronauts.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A50621942770053E00FEB6A2 /* Astronauts.xcdatamodel */,
-			);
-			currentVersion = A50621942770053E00FEB6A2 /* Astronauts.xcdatamodel */;
-			path = Astronauts.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A506217F2770053E00FEB6A2 /* Project object */;
 }

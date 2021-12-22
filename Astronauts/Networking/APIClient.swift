@@ -24,7 +24,7 @@ public class APIClient: NSObject {
     ///   - url: url
     ///   - completion: completion block to return Data or Error
     /// - Returns: Fetched Data or Error
-    public func jsonDataTask (url : URL, completion: @escaping (_ data: Data?, _ error: Error? ) -> ()) {
+    public func jsonDataTask (url : URL, completion: @escaping (Result <Data,Error>) -> ()) {
         
         dataTask = session.dataTask(with: url){[weak self]data,response,error in
             defer {
@@ -32,27 +32,27 @@ public class APIClient: NSObject {
             }
             if let error = error {
                 print(error.localizedDescription)
-                completion(data,error)
+                completion(.failure(error))
             }
             else if let response = response as? HTTPURLResponse {
                 if response.statusCode == 200 {
                     
                     if let data = data {
-                        completion(data,error)
+                        completion(.success(data))
                     }
                     else {
                         //Invalid Data
-                        completion(data,AstronautAppError.invalidData)
+                        completion(.failure(AstronautAppError.invalidData))
                     }
                 }
                 else {
                     //Invalid Status code
-                    completion(data,AstronautAppError.invalidStatusCode)
+                    completion(.failure(AstronautAppError.invalidStatusCode))
                 }
             }
             else{
                 //Invalid Response
-                completion(data,AstronautAppError.invalidResponse)
+                completion(.failure(AstronautAppError.invalidResponse))
             }
         }
         dataTask?.resume()
@@ -63,41 +63,42 @@ public class APIClient: NSObject {
     ///   - completion: completion block to return Image Data or Error
     /// - Returns: Fetched Data for downloaded file or Error
     
-    public func downloadDataTask (url : URL, completion: @escaping (_ data: Data?, _ error: Error? ) -> ()) {
+    public func downloadDataTask (url : URL, completion: @escaping (Result<Data,Error> ) -> ()) {
         downloadTask = session.downloadTask(with: url, completionHandler: {[weak self] (localUrl , response, error) in
-            var data : Data?
+            
             defer {
                 self?.downloadTask = nil
             }
             if let error = error {
                 print(error.localizedDescription)
-                completion(data,error)
+                completion(.failure(error))
             }
             
             else if let response = response as? HTTPURLResponse {
                 if response.statusCode == 200 {
                     if let localUrl = localUrl {
                         do {
-                            data = try Data(contentsOf: localUrl)
-                            completion(data,error)
+                            let data = try Data(contentsOf: localUrl)
+                                completion(.success(data))
+                            
                         } catch  {
-                            completion(data,AstronautAppError.invalidData)
+                            completion(.failure(AstronautAppError.invalidData))
                         }
                     }
                     else {
                         //Invalid local url
-                        completion(data,AstronautAppError.invalidFile)
+                        completion(.failure(AstronautAppError.invalidFile))
                     }
                     
                 }
                 else{
                     //Invalid Status code
-                    completion(data,AstronautAppError.invalidStatusCode)
+                    completion(.failure(AstronautAppError.invalidStatusCode))
                 }
             }
             else{
                 //Invalid Response
-                completion(data,AstronautAppError.invalidResponse)
+                completion(.failure(AstronautAppError.invalidResponse))
             }
             
         })

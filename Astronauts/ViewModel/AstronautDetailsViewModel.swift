@@ -34,30 +34,18 @@ struct AstronautDetailsViewModel {
         self.apiServiceProtocol = apiServiceProtocol
     }
     
-    func fetchAstronautDetails(completion: @escaping (Astronaut?, Error?) -> Void) {
+    func fetchAstronautDetails(completion: @escaping (Result<Astronaut, Error>) -> ()) {
         let detailURL = URL(string: Constants.API.baseURL+String(self.id))!
-        self.apiServiceProtocol.fetchAstronautDetail(url: detailURL) { astronautDetail, error in
-            if let  error = error {
-                print(error.localizedDescription)
-                completion(astronautDetail, error)
-            }
-            else {
-                completion(astronautDetail,error)
-            }
+        self.apiServiceProtocol.fetchAstronautDetail(url: detailURL) { result in
+            completion(result)
         }
         
-        }
+    }
     
 
-    func fetchProfileImage(url : URL?, completion : @escaping (UIImage?, Error?)->()){
-        self.apiServiceProtocol.fetchProfileImage(imageUrl: url) { image, error in
-            if let  error = error {
-                print(error.localizedDescription)
-                completion(image, error)
-            }
-            else {
-                completion(image,error)
-            }
+    func fetchProfileImage(url : URL?, completion : @escaping (Result<UIImage, Error>)->()){
+        self.apiServiceProtocol.fetchProfileImage(imageUrl: url) { result in
+           completion(result)
             
         }
     }

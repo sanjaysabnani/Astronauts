@@ -30,39 +30,48 @@ class AstronautDetailsViewController: UIViewController {
         }
         
         let astronautDetailsViewModel = AstronautDetailsViewModel(astronautID: astronautID, apiServiceProtocol: APIHelper.shared)
-            astronautDetailsViewModel.fetchAstronautDetails {[weak self] astronaut, error in
+            astronautDetailsViewModel.fetchAstronautDetails {[weak self] result in
                 
-                if let error = error {
-                    print(error.localizedDescription)
+                switch result {
                     
-                }
-                
-                guard let astronaut = astronaut else { return  }
-                
-                DispatchQueue.main.async {
-                    
-                    self?.nameLabel.text = astronaut.name
-                    self?.countryLabel.text = "Nationality : \(astronaut.nationality)"
-                    self?.dobLabel.text = "DOB : \(astronaut.date_of_birth ??  Constants.Strings.unknown)"
-                    self?.bioTextView.text = astronaut.bio
-                    
-                }
-                if let imgUrl = URL(string: astronaut.profile_image!) {
-                    
-                    astronautDetailsViewModel.fetchProfileImage(url: imgUrl) { [weak self]image, error in
-                        DispatchQueue.main.async {
-                            self?.activityIndicator.stopAnimating()
-                            self?.profileImageView.image = image
+                case .success(let astronaut):
+                    DispatchQueue.main.async {
                         
+                        self?.nameLabel.text = astronaut.name
+                        self?.countryLabel.text = "Nationality : \(astronaut.nationality)"
+                        self?.dobLabel.text = "DOB : \(astronaut.date_of_birth ??  Constants.Strings.unknown)"
+                        self?.bioTextView.text = astronaut.bio
+                    }
+                    
+                    if let imgUrl = URL(string: astronaut.profile_image!) {
+                        
+                        astronautDetailsViewModel.fetchProfileImage(url: imgUrl) { [weak self] result in
+                            switch result {
+                            case .success(let image):
+                                DispatchQueue.main.async {
+                                    self?.activityIndicator.stopAnimating()
+                                    self?.profileImageView.image = image
+                                
+                                }
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                            
+                            
                         }
                     }
+                    
+                    
+                case .failure(let error):
+                    
+                        print(error.localizedDescription)
                 }
                 
+                
+                
+                
+                
         }
-        
-        
-        
-        
     }
     
     deinit {
