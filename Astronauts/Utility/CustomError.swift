@@ -31,7 +31,7 @@ extension AstronautAppError: LocalizedError {
         case .invalidResponse:
             return NSLocalizedString("Invalid response received.",comment: "")
         case .invalidStatusCode(let stausCode):
-            return NSLocalizedString("Server retunred an invalid Status code \(stausCode).",comment: "")
+            return NSLocalizedString("Server returned an invalid Status code \(stausCode).",comment: "")
         case .mockAPIError:
             return NSLocalizedString("Mock API Error",comment: "")
         case .invalidFile:

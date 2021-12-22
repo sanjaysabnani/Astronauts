@@ -1,0 +1,32 @@
+{
+    "id": 643,
+    "url": "http://spacelaunchnow.me/api/ll/2.2.0/astronaut/643/",
+    "name": "Jennifer Sidey-Gibbons",
+    "status": {
+        "id": 1,
+        "name": "Active"
+    },
+    "type": {
+        "id": 2,
+        "name": "Government"
+    },
+    "agency": {
+        "id": 16,
+        "url": "http://spacelaunchnow.me/api/ll/2.2.0/agencies/16/",
+        "name": "Canadian Space Agency",
+        "type": "Government"
+    },
+    "date_of_birth": "1988-08-03",
+    "date_of_death": null,
+    "nationality": "Canadian",
+    "twitter": "https://twitter.com/astro_jenni",
+    "instagram": "https://www.instagram.com/astro_jenni/",
+    "bio": "Jennifer Sidey-Gibbons hails from Calgary, Alberta. She holds an honors bachelor's degree in mechanical engineering from McGill University in Montreal and a doctorate in engineering from the University of Cambridge. While at McGill, she conducted research on flame propagation in microgravity, in collaboration with CSA and the National Research Council Flight Research Laboratory. Prior to joining CSA, Sidey-Gibbons worked as an assistant professor in combustion in the Department of Engineering at Cambridge.",
+    "profile_image": "https://spacelaunchnow-prod-east.nyc3.cdn.digitaloceanspaces.com/media/astronaut_images/jennifer2520sidey-gibbons_image_20191228100223.jpeg",
+    "profile_image_thumbnail": "https://spacelaunchnow-prod-east.nyc3.cdn.digitaloceanspaces.com/media/default/cache/83/04/83049a7dd1a36ae09cffe0f566626244.jpg",
+    "wiki": "https://en.wikipedia.org/wiki/Jenni_Sidey",
+    "flights": [],
+    "landings": [],
+    "last_flight": null,
+    "first_flight": null
+}

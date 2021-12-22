@@ -28,6 +28,10 @@
 		A50621DB2770395F00FEB6A2 /* AstronautCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621DA2770395F00FEB6A2 /* AstronautCell.swift */; };
 		A526AE6C277049F5000672ED /* AstronautDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526AE6B277049F5000672ED /* AstronautDetailsViewModel.swift */; };
 		A526AE6E2772B09E000672ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526AE6D2772B09E000672ED /* Extensions.swift */; };
+		A526AE702772BFF6000672ED /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526AE6F2772BFF6000672ED /* APITests.swift */; };
+		A526AE732772DDD5000672ED /* Astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = A526AE722772DDD5000672ED /* Astronaut.json */; };
+		A526AE742772DDDA000672ED /* AstronautsData.json in Resources */ = {isa = PBXBuildFile; fileRef = A526AE712772DD98000672ED /* AstronautsData.json */; };
+		A526AE762772E112000672ED /* MockAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526AE752772E112000672ED /* MockAPITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		A50621DA2770395F00FEB6A2 /* AstronautCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautCell.swift; sourceTree = "<group>"; };
 		A526AE6B277049F5000672ED /* AstronautDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailsViewModel.swift; sourceTree = "<group>"; };
 		A526AE6D2772B09E000672ED /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A526AE6F2772BFF6000672ED /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		A526AE712772DD98000672ED /* AstronautsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AstronautsData.json; sourceTree = "<group>"; };
+		A526AE722772DDD5000672ED /* Astronaut.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Astronaut.json; sourceTree = "<group>"; };
+		A526AE752772E112000672ED /* MockAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				A50621A42770054000FEB6A2 /* AstronautsTests.swift */,
+				A526AE6F2772BFF6000672ED /* APITests.swift */,
+				A526AE752772E112000672ED /* MockAPITests.swift */,
 			);
 			path = AstronautsTests;
 			sourceTree = "<group>";
@@ -212,6 +222,8 @@
 				A50621CE2770104A00FEB6A2 /* Constants.swift */,
 				A50621D8277013CF00FEB6A2 /* CustomError.swift */,
 				A526AE6D2772B09E000672ED /* Extensions.swift */,
+				A526AE712772DD98000672ED /* AstronautsData.json */,
+				A526AE722772DDD5000672ED /* Astronaut.json */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -342,6 +354,8 @@
 				A506219A2770054000FEB6A2 /* LaunchScreen.storyboard in Resources */,
 				A50621972770054000FEB6A2 /* Assets.xcassets in Resources */,
 				A50621922770053E00FEB6A2 /* Main.storyboard in Resources */,
+				A526AE742772DDDA000672ED /* AstronautsData.json in Resources */,
+				A526AE732772DDD5000672ED /* Astronaut.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +402,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A526AE702772BFF6000672ED /* APITests.swift in Sources */,
+				A526AE762772E112000672ED /* MockAPITests.swift in Sources */,
 				A50621A52770054000FEB6A2 /* AstronautsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
