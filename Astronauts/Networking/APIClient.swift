@@ -47,7 +47,7 @@ public class APIClient: NSObject {
                 }
                 else {
                     //Invalid Status code
-                    completion(.failure(AstronautAppError.invalidStatusCode))
+                    completion(.failure(AstronautAppError.invalidStatusCode(response.statusCode)))
                 }
             }
             else{
@@ -93,7 +93,7 @@ public class APIClient: NSObject {
                 }
                 else{
                     //Invalid Status code
-                    completion(.failure(AstronautAppError.invalidStatusCode))
+                    completion(.failure(AstronautAppError.invalidStatusCode(response.statusCode)))
                 }
             }
             else{

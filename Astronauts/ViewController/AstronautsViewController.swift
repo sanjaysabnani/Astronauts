@@ -31,7 +31,10 @@ class AstronautsViewController: UIViewController {
             sorted = !sorted
             astronauts = sortedList
         self.tableView.reloadData()
-        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .middle, animated: true)
+        if tableView.numberOfRows(inSection: 0) > 0 {
+            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .middle, animated: true)
+        }
+        
         }
     
     func fetchData(){
@@ -44,7 +47,10 @@ class AstronautsViewController: UIViewController {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.showAlert(title: Constants.Strings.error, message: error.localizedDescription)
+                    print(error.localizedDescription)
+                }
             }
         }
     }

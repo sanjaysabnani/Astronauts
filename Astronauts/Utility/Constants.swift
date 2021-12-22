@@ -29,5 +29,9 @@ public struct Constants {
     }
     public struct Strings {
         static  let unknown = "Unknown"
+        static let ok = "Ok"
+        static let error = "Error"
+        static let unableToDownloadImg = "Unable to download Profile Image."
+        static let unableToFetchDetails = "Unable to fetch Astronaut details."
     }
 }

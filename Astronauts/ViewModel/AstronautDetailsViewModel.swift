@@ -5,7 +5,6 @@
 //  Created by M_Sanjay on 20/12/2021.
 //
 
-import Foundation
 import UIKit
 
 struct AstronautDetailsViewModel {

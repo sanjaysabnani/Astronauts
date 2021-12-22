@@ -27,6 +27,7 @@
 		A50621D9277013CF00FEB6A2 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621D8277013CF00FEB6A2 /* CustomError.swift */; };
 		A50621DB2770395F00FEB6A2 /* AstronautCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621DA2770395F00FEB6A2 /* AstronautCell.swift */; };
 		A526AE6C277049F5000672ED /* AstronautDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526AE6B277049F5000672ED /* AstronautDetailsViewModel.swift */; };
+		A526AE6E2772B09E000672ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A526AE6D2772B09E000672ED /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		A50621D8277013CF00FEB6A2 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		A50621DA2770395F00FEB6A2 /* AstronautCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautCell.swift; sourceTree = "<group>"; };
 		A526AE6B277049F5000672ED /* AstronautDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailsViewModel.swift; sourceTree = "<group>"; };
+		A526AE6D2772B09E000672ED /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 			children = (
 				A50621CE2770104A00FEB6A2 /* Constants.swift */,
 				A50621D8277013CF00FEB6A2 /* CustomError.swift */,
+				A526AE6D2772B09E000672ED /* Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				A50621CB27700BA500FEB6A2 /* Astronaut.swift in Sources */,
 				A50621DB2770395F00FEB6A2 /* AstronautCell.swift in Sources */,
 				A50621D9277013CF00FEB6A2 /* CustomError.swift in Sources */,
+				A526AE6E2772B09E000672ED /* Extensions.swift in Sources */,
 				A50621CD27700F4300FEB6A2 /* AstronautDetailsViewController.swift in Sources */,
 				A506218D2770053E00FEB6A2 /* SceneDelegate.swift in Sources */,
 				A50621D3277010AE00FEB6A2 /* APIHelper.swift in Sources */,

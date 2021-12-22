@@ -22,12 +22,13 @@ class AstronautCell: UITableViewCell {
         
         
         let astronautCellViewModel = AstronautDetailsViewModel(astronaut: astronaut, apiServiceProtocol: APIHelper.shared)
+        
         let imgUrl = astronautCellViewModel.profileThumbnailImageURL
         
+        self.profileImageView.image = UIImage(systemName: "person.crop.circle")
         astronautCellViewModel.fetchProfileImage(url: imgUrl) { [weak self] result  in
             
             switch result {
-                
             case .success(let image):
                 DispatchQueue.main.async {
                     self?.activityIndicator.stopAnimating()
@@ -35,7 +36,10 @@ class AstronautCell: UITableViewCell {
                     
                 }
             case .failure(let error):
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
+                    print(error.localizedDescription)
+                }
             }
             
             

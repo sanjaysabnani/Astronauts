@@ -12,7 +12,7 @@ enum AstronautAppError: Error {
     case jsonParsingError
     case invalidData
     case invalidResponse
-    case invalidStatusCode
+    case invalidStatusCode(Int)
     case invalidFile
     case noResultsFound
     case mockAPIError
@@ -25,37 +25,21 @@ extension AstronautAppError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .jsonParsingError:
-            return NSLocalizedString(
-                "Issue Parsing Response.",
-                comment: ""
-            )
-            
+            return NSLocalizedString("There was an issue parsing server response.",comment: "")
         case .invalidData:
-            return NSLocalizedString(
-                "Invalid data.",
-                comment: ""
-            )
+            return NSLocalizedString("Invalid data received.",comment: "")
         case .invalidResponse:
-            return NSLocalizedString(
-                "Invalid Response.",
-                comment: ""
-            )
-        case .invalidStatusCode:
-            return NSLocalizedString(
-                "Invalid Status code.",
-                comment: ""
-            )
+            return NSLocalizedString("Invalid response received.",comment: "")
+        case .invalidStatusCode(let stausCode):
+            return NSLocalizedString("Server retunred an invalid Status code \(stausCode).",comment: "")
         case .mockAPIError:
-            return NSLocalizedString(
-                "Mock API Error",
-                comment: ""
-            )
+            return NSLocalizedString("Mock API Error",comment: "")
         case .invalidFile:
-            return NSLocalizedString("Unable to locate file", comment: "")
+            return NSLocalizedString("Unable to locate image", comment: "")
         case .noResultsFound:
-            return NSLocalizedString("No Results Found", comment: "")
+            return NSLocalizedString("No results found.", comment: "")
         case .invalidUrl:
-            return NSLocalizedString("Invalid File Url", comment: "")
+            return NSLocalizedString("Invalid image path", comment: "")
         }
     }
 }

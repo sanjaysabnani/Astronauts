@@ -54,23 +54,26 @@ class AstronautDetailsViewController: UIViewController {
                                 
                                 }
                             case .failure(let error):
-                                print(error.localizedDescription)
+                                DispatchQueue.main.async {
+                                    self?.showAlert(title: Constants.Strings.error, message: Constants.Strings.unableToDownloadImg + error.localizedDescription)
+                                    self?.activityIndicator.stopAnimating()
+                                    print(error.localizedDescription)
+                                }
+                                
                             }
                             
                             
                         }
                     }
-                    
-                    
                 case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.activityIndicator.stopAnimating()
+                        self?.showAlert(title: Constants.Strings.error, message: Constants.Strings.unableToFetchDetails + error.localizedDescription)
+                            print(error.localizedDescription)
+
+                    }
                     
-                        print(error.localizedDescription)
                 }
-                
-                
-                
-                
-                
         }
     }
     
