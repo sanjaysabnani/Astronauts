@@ -18,7 +18,8 @@ struct AstronautsData: Codable {
 }
 
 // MARK: - Astronaut
-struct Astronaut: Codable {
+struct Astronaut: Codable, Equatable {
+    
     let id: Int
     let url: String
     let name: String
@@ -31,6 +32,10 @@ struct Astronaut: Codable {
     let lastFlight, firstFlight: Date?
     let date_of_birth : String?
 
+    static func == (lhs: Astronaut, rhs: Astronaut) -> Bool {
+         lhs.id == rhs.id
+    }
+    
 }
 
 

@@ -15,7 +15,6 @@
 		A506219A2770054000FEB6A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50621982770054000FEB6A2 /* LaunchScreen.storyboard */; };
 		A50621A52770054000FEB6A2 /* AstronautsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621A42770054000FEB6A2 /* AstronautsViewModelTests.swift */; };
 		A50621AF2770054000FEB6A2 /* AstronautsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621AE2770054000FEB6A2 /* AstronautsUITests.swift */; };
-		A50621B12770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621B02770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift */; };
 		A50621C72770093F00FEB6A2 /* AstronautsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621C62770093F00FEB6A2 /* AstronautsViewModel.swift */; };
 		A50621CB27700BA500FEB6A2 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621CA27700BA500FEB6A2 /* Astronaut.swift */; };
 		A50621CD27700F4300FEB6A2 /* AstronautDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50621CC27700F4300FEB6A2 /* AstronautDetailsViewController.swift */; };
@@ -64,7 +63,6 @@
 		A50621A42770054000FEB6A2 /* AstronautsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsViewModelTests.swift; sourceTree = "<group>"; };
 		A50621AA2770054000FEB6A2 /* AstronautsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronautsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50621AE2770054000FEB6A2 /* AstronautsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITests.swift; sourceTree = "<group>"; };
-		A50621B02770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A50621C62770093F00FEB6A2 /* AstronautsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsViewModel.swift; sourceTree = "<group>"; };
 		A50621CA27700BA500FEB6A2 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		A50621CC27700F4300FEB6A2 /* AstronautDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailsViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				A50621AE2770054000FEB6A2 /* AstronautsUITests.swift */,
-				A50621B02770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift */,
 			);
 			path = AstronautsUITests;
 			sourceTree = "<group>";
@@ -411,7 +408,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A50621B12770054000FEB6A2 /* AstronautsUITestsLaunchTests.swift in Sources */,
 				A50621AF2770054000FEB6A2 /* AstronautsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,7 +671,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = Astronauts;
 			};
 			name = Debug;
@@ -692,7 +688,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = Astronauts;
 			};
 			name = Release;

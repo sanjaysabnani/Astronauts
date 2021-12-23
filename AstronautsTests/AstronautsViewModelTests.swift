@@ -29,8 +29,8 @@ class AstronautsViewModelTests: XCTestCase {
                let astronauts = astronautsData.results
                 let sortedAstronauts =  self.astronatutsViewModel?.sort(astronauts: astronauts, ascending: true)
                 let sortedArray = astronauts.sorted(by: {$0.name < $1.name})
-                XCTAssertEqual(sortedAstronauts?.first?.name , sortedArray.first?.name)
-                XCTAssertEqual(sortedAstronauts?.last?.name, sortedArray.last?.name)
+                XCTAssertEqual(sortedAstronauts?.first , sortedArray.first)
+                XCTAssertEqual(sortedAstronauts?.last, sortedArray.last)
                 
                 
             case .failure(_):
